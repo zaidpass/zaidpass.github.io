@@ -187,8 +187,17 @@
     border: 1px solid var(--rule);
     padding: 18px 14px; text-align: center;
     transition: border-color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 64px;
   }
   .logo-item:hover { border-color: var(--rule-mid); }
+  .logo-img {
+    max-height: 32px; max-width: 100px;
+    width: auto; object-fit: contain;
+    filter: grayscale(100%); opacity: 0.6;
+    transition: opacity 0.2s, filter 0.2s;
+  }
+  .logo-item:hover .logo-img { filter: grayscale(0%); opacity: 1; }
   .logo-name {
     font-size: 13px; font-weight: 500; color: var(--ink);
     margin-bottom: 3px; letter-spacing: 0.01em;
@@ -510,36 +519,36 @@
     <div class="logo-wall-label">Career background</div>
     <div class="logo-grid">
       <div class="logo-item">
-        <div class="logo-name">Dept. of Health</div>
-        <div class="logo-sub">Abu Dhabi</div>
+        <img src="https://logo.clearbit.com/doh.gov.ae" alt="Department of Health Abu Dhabi" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">Dept. of Health</div><div class="logo-sub">Abu Dhabi</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">McKinsey</div>
-        <div class="logo-sub">& Company</div>
+        <img src="https://logo.clearbit.com/mckinsey.com" alt="McKinsey & Company" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">McKinsey</div><div class="logo-sub">& Company</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">Cleveland Clinic</div>
-        <div class="logo-sub">Canada</div>
+        <img src="https://logo.clearbit.com/clevelandclinic.org" alt="Cleveland Clinic" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">Cleveland Clinic</div><div class="logo-sub">Canada</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">RBC</div>
-        <div class="logo-sub">Royal Bank of Canada</div>
+        <img src="https://logo.clearbit.com/rbc.com" alt="RBC" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">RBC</div><div class="logo-sub">Royal Bank of Canada</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">EY</div>
-        <div class="logo-sub">Ernst & Young</div>
+        <img src="https://logo.clearbit.com/ey.com" alt="EY" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">EY</div><div class="logo-sub">Ernst & Young</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">Loblaw</div>
-        <div class="logo-sub">Companies</div>
+        <img src="https://logo.clearbit.com/loblaw.ca" alt="Loblaw" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">Loblaw</div><div class="logo-sub">Companies</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">INSEAD</div>
-        <div class="logo-sub">MBA</div>
+        <img src="https://logo.clearbit.com/insead.edu" alt="INSEAD" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">INSEAD</div><div class="logo-sub">MBA</div></div>
       </div>
       <div class="logo-item">
-        <div class="logo-name">University of Toronto</div>
-        <div class="logo-sub">Engineering</div>
+        <img src="https://logo.clearbit.com/utoronto.ca" alt="University of Toronto" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none"><div class="logo-name">University of Toronto</div><div class="logo-sub">Engineering</div></div>
       </div>
     </div>
   </div>
@@ -588,67 +597,49 @@
     </div>
   </div>
 
-  <!-- CONSULTING LIST -->
-  <div id="tab-consulting" class="consulting-list">
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">Non-Profit University Turnaround</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">The university was losing $25M a year and had roughly four years before its endowment ran out. What made this engagement unusual was that McKinsey stayed through the full journey — from strategy all the way through implementation. The work covered both sides of the equation: building new revenue streams including online degree offerings, and sustainably cutting costs. The team worked directly with the President, Provost, and CFO on strategic and financial decisions, and engaged students directly. The result was a $30M improvement in annual cash flow.</div>
+  <!-- CONSULTING CARDS -->
+  <div id="tab-consulting" class="doh-grid" style="display:none;">
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">Non-Profit University Turnaround</div>
+      <div class="doh-card-body">The university was losing $25M a year and had roughly four years before its endowment ran out. What made this engagement unusual was that McKinsey stayed through the full journey — from strategy all the way through implementation. The work covered both sides of the equation: building new revenue streams including online degree offerings, and sustainably cutting costs. The team worked directly with the President, Provost, and CFO on strategic and financial decisions, and engaged students directly. The result was a $30M improvement in annual cash flow.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">Private Equity Due Diligence</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">Across 5+ engagements spanning virtually every sector, the team conducted due diligences for private equity firms on both the buy-side and sell-side of potential acquisitions, with targets cumulatively valued at over $3B. The work involved a deep analysis of each business to give investors a clear picture of what they were acquiring and whether it met their investment criteria. The findings directly informed the buy or no-buy decisions of the firms involved.</div>
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">Private Equity Due Diligence</div>
+      <div class="doh-card-body">Across 5+ engagements spanning virtually every sector, the team conducted due diligences for private equity firms on both the buy-side and sell-side of potential acquisitions, with targets cumulatively valued at over $3B. The work involved a deep analysis of each business to give investors a clear picture of what they were acquiring and whether it met their investment criteria. The findings directly informed the buy or no-buy decisions of the firms involved.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">$80B PharmaCo Merger Integration</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">When two pharmaceutical companies merge at a combined value of over $80B, the hardest part isn't the deal — it's making the two organizations actually function as one. The team was brought in to redesign the organizational structure for the operations departments, covering around 2,000 employees. The mandate wasn't to cut costs but to figure out how to combine two different ways of working into something better than either was on its own. The output was a new organizational design that minimized disruption while setting the merged entity up to operate effectively.</div>
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">$80B PharmaCo Merger Integration</div>
+      <div class="doh-card-body">When two pharmaceutical companies merge at a combined value of over $80B, the hardest part isn't the deal — it's making the two organizations actually function as one. The team was brought in to redesign the organizational structure for the operations departments, covering around 2,000 employees. The mandate wasn't to cut costs but to figure out how to combine two different ways of working into something better than either was on its own. The output was a new organizational design that minimized disruption while setting the merged entity up to operate effectively.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">$8B Software Company Growth Strategy</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">The company had been growing at double digit CAGR for several years, specializing in chemicals and technology. The team developed a 3-year growth strategy covering both organic and inorganic paths, with a specific focus on expansion into pharma. A key part of the work was identifying which companies to acquire — not just based on financials and growth potential, but on cultural and strategic fit. The output gave the CEO a clear roadmap for where to take the business next.</div>
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">$8B Software Company Growth Strategy</div>
+      <div class="doh-card-body">The company had been growing at double digit CAGR for several years, specializing in chemicals and technology. The team developed a 3-year growth strategy covering both organic and inorganic paths, with a specific focus on expansion into pharma. A key part of the work was identifying which companies to acquire — not just based on financials and growth potential, but on cultural and strategic fit. The output gave the CEO a clear roadmap for where to take the business next.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">COVID-19 Displaced Workers Program</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">With 60,000 workers displaced across the state as a result of COVID-19, the team was brought in to design a program to get people back into employment. The solution was an ecosystem that connected displaced workers with upskilling opportunities and matched them directly with major companies operating in the state.</div>
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">COVID-19 Displaced Workers Program</div>
+      <div class="doh-card-body">With 60,000 workers displaced across the state as a result of COVID-19, the team was brought in to design a program to get people back into employment. The solution was an ecosystem that connected displaced workers with upskilling opportunities and matched them directly with major companies operating in the state.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
-    <div class="consulting-item" onclick="toggleConsulting(this)">
-      <div class="consulting-item-header">
-        <div>
-          <div class="consulting-item-meta">McKinsey &amp; Company</div>
-          <div class="consulting-item-title">COVID-19 School Reopening</div>
-        </div>
-        <span class="consulting-item-icon">+</span>
-      </div>
-      <div class="consulting-item-body">Schools had been closed for weeks and there was significant pressure from the Governor and Senator to get them back open. The challenge was that reopening 280,000 students safely involved navigating safety protocols, logistics, and resistance from both teachers and parents all at the same time. The team worked through each of these simultaneously, testing different operational scenarios, enhancing the eLearning curriculum, and building a comprehensive phased reopening plan that addressed the concerns of every stakeholder involved.</div>
+    <div class="doh-card" onclick="toggleCard(this)">
+      <span class="doh-card-tag">McKinsey &amp; Company</span>
+      <div class="doh-card-title">COVID-19 School Reopening</div>
+      <div class="doh-card-body">Schools had been closed for weeks and there was significant pressure from the Governor and Senator to get them back open. The challenge was that reopening 280,000 students safely involved navigating safety protocols, logistics, and resistance from both teachers and parents all at the same time. The team worked through each of these simultaneously, testing different operational scenarios, enhancing the eLearning curriculum, and building a comprehensive phased reopening plan that addressed the concerns of every stakeholder involved.</div>
+      <span class="doh-card-cta">Read more →</span>
+      <button class="doh-card-close" onclick="toggleCard(this.closest('.doh-card')); event.stopPropagation();">Close ↑</button>
     </div>
   </div>
 </section>
@@ -740,9 +731,7 @@ function switchTab(tab, btn) {
   });
   btn.classList.remove('inactive'); btn.classList.add('active');
   document.getElementById('tab-doh').style.display = tab === 'doh' ? 'grid' : 'none';
-  const cl = document.getElementById('tab-consulting');
-  cl.style.display = tab === 'consulting' ? 'flex' : 'none';
-  if (tab === 'consulting') cl.classList.add('visible');
+  document.getElementById('tab-consulting').style.display = tab === 'consulting' ? 'grid' : 'none';
 }
 
 function toggleCard(card) {
